@@ -3,9 +3,8 @@ title: 看着98分dalao不禁陷入沉思...
 cwd: hexo/myblog
 date: 2020-08-19 02:04:42
 tags:
-- 学习
+- 日常
 - csapp
-- 吐槽
 ---
 
 这代码真的是你想表达的意思？
