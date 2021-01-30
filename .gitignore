@@ -1,0 +1,8 @@
+.deploy_git
+
+new.sh
+show.sh
+autoupdate.sh
+*.un~
+themes/yilia/_config.yml
+
