@@ -382,6 +382,86 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-先来整理下自己的想法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/24/%E5%85%88%E6%9D%A5%E6%95%B4%E7%90%86%E4%B8%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E6%83%B3%E6%B3%95/">先来整理下自己的想法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/24/%E5%85%88%E6%9D%A5%E6%95%B4%E7%90%86%E4%B8%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E6%83%B3%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-09-24T08:37:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-24 16:37:43</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>select版本的话，应该是每次读取一行，然后直到读取到/r/n后一起解析。</p>
+<p>同时这里不能使用rio_readlineb版本的函数，缓冲区的存在会让在一次发送多行header的数据不能被select正确判断，所以我基于rio_readn实现了一个不用缓冲区的rio_readline函数。</p>
+<p>先从读取部分实现select并且只实现GET方法来，然后再慢慢修改，毕竟我这样的笨人还是要一步步来。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">csapp</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/24/%E5%85%88%E6%9D%A5%E6%95%B4%E7%90%86%E4%B8%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E6%83%B3%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-欢呼" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1051,88 +1131,6 @@ mjx-container[display="true"] + br {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/09/21/%E6%88%91%E5%A5%BD%E9%85%B8%E5%95%8A/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-吐槽下计蒜之道的c题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/21/%E5%90%90%E6%A7%BD%E4%B8%8B%E8%AE%A1%E8%92%9C%E4%B9%8B%E9%81%93%E7%9A%84c%E9%A2%98/">吐槽下计蒜之道的c题</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/21/%E5%90%90%E6%A7%BD%E4%B8%8B%E8%AE%A1%E8%92%9C%E4%B9%8B%E9%81%93%E7%9A%84c%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-09-21T04:44:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21 12:44:07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>与其说是吐槽，不如说是反省自己。这道题是自己第一次在做计蒜之道的中等题时有思路的题，然后线段树内存超了…最后也没能ac。</p>
-<p>事后看题解发现c的题解也是线段树，然而出题人内存卡的很死，如果用常规方法建线段树最少需要内存是524287.5KB，而限制是524288KB，加上用来合并的两个数组再占0.5KB，已然达到限制…</p>
-<p>所以只能用非常规手段建线段树，因为一共是2*n-1个节点嘛，然后加上两个指向左右孩子的下标内存也还勉强够用，所以可以借助build时返回一个自己的下标来做。</p>
-<p>修改后提交就a了（</p>
-<p>算是给自己上了一课吧，嘛第一时间知道线段树是题解的时候是很难受的，但是是自己不好好计算内存的锅，而且这样建线段树也是一种独特的思路，是一次非常有意义的经验。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线段树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">胡思乱想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/21/%E5%90%90%E6%A7%BD%E4%B8%8B%E8%AE%A1%E8%92%9C%E4%B9%8B%E9%81%93%E7%9A%84c%E9%A2%98/">展开全文 >></a>
         </p>
       
 
