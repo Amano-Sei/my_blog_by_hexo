@@ -382,6 +382,86 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-c12完成了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/27/c12%E5%AE%8C%E6%88%90%E4%BA%86/">c12完成了</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/27/c12%E5%AE%8C%E6%88%90%E4%BA%86/" class="archive-article-date">
+  	<time datetime="2020-09-26T15:16:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26 23:16:44</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>就这样结束了…</p>
+<p>写README之前，一直觉得会有很多话想写，但是真到这个时候发觉也没什么能写的…</p>
+<p>总之下一个目标是proxy lab，完成了就真的要和csapp说再见一段时间了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">csapp</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/27/c12%E5%AE%8C%E6%88%90%E4%BA%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-找到PP的锅了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1088,91 +1168,6 @@ mjx-container[display="true"] + br {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/09/25/%E6%88%91%E5%8F%91%E8%A7%89%E4%BA%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-检查了下代码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/25/%E6%A3%80%E6%9F%A5%E4%BA%86%E4%B8%8B%E4%BB%A3%E7%A0%81/">检查了下代码</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/25/%E6%A3%80%E6%9F%A5%E4%BA%86%E4%B8%8B%E4%BB%A3%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2020-09-25T13:17:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-25 21:17:06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>刚刚完成了代码的检查。</p>
-<p>同时对火狐打开情况进行了预测，都完全符合预期。</p>
-<p>现在猜测是chrome会限制对同一个ip同时打开的连接数，究竟怎么回事可能药看chrome代码才知道了。</p>
-<p>然后是现在的问题，因为我对缓冲区的检查是在insert和remove的时候进行的，并且如果缓冲区清空后，要关闭的线程如果连接还没有关闭就只能一直等着。</p>
-<p>导致的结果就是我只能同时放两倍的起始线程数的（缓冲区和起始线程数一样大）masterpiece…</p>
-<p>然后mutex信号量就会一直握在减少线程的线程手里直到他想关的线程的服务结束了然后关掉他想关的线程为止都不可能再进行新的服务或者扩大线程…</p>
-<p>现在觉得可能还是额外的定期检查比较好，在上面加一个额外的entry信号量来避免饥饿。而且现在来看信号量并不复杂…说人家写的莫名其妙是我的理解不到位…</p>
-<p>突然意识到…我的理解有锅…</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">csapp</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/25/%E6%A3%80%E6%9F%A5%E4%BA%86%E4%B8%8B%E4%BB%A3%E7%A0%81/">展开全文 >></a>
         </p>
       
 

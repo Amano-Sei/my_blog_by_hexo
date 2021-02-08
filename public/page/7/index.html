@@ -382,6 +382,93 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-皮亚诺曲线距离" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/13/%E7%9A%AE%E4%BA%9A%E8%AF%BA%E6%9B%B2%E7%BA%BF%E8%B7%9D%E7%A6%BB/">皮亚诺曲线距离</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/13/%E7%9A%AE%E4%BA%9A%E8%AF%BA%E6%9B%B2%E7%BA%BF%E8%B7%9D%E7%A6%BB/" class="archive-article-date">
+  	<time datetime="2020-12-12T15:28:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12 23:28:55</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>就是蓝桥杯那道（赛场上感觉）贼恶心的题，虽然明白了怎么做之后感觉好像跟恶心不沾边…然后当时赛场上我没做出来，最后直接把样例交上去混分了…</p>
+<p>题面可以参考<a href="https://www.cnblogs.com/valk3/archive/2004/01/13/14036850.html" target="_blank" rel="noopener">这个dalao的题解</a>，我也是因为做了dalao提到的<a href="https://www.acwing.com/problem/content/description/100/" target="_blank" rel="noopener">分形之城</a>慢慢获得的思路。</p>
+<p>在做完分形之城之后我就在想我能通过坐标获得标号么，当时我想的是如果参考我看得题解的做法想要得出标号会非常麻烦…所以就丢到一边了（</p>
+<p>重看皮亚诺曲线距离后我意识到这个通过坐标求标号还是比较容易的。自己写完后去看dalao的题解时发觉和我的很接近。但是有一点，题目只保证结果在long long范围内，所以我们不能简单地用两个点的标号相减。我们要么实现个大数类，要么要分解两点之间的路线以保证不超过long long范围。</p>
+<p>分解的话，起点到他所在格子的最后一点的点数，终点到他所在格子的第一点的点数，完整的格子里面的点数，最后拿点数减1即可。</p>
+<p>到最后一点的点数，我们可以把格子旋转180度当做到第一点的点数来求。</p>
+<p>此外我们还要判断起点和终点是否在一个格子，如果在同一个格子需要递归来处理。</p>
+<p>最后是我的代码，但是没有可以验是否正确的地方，也不知道怎么写个肯定正确的暴力来验证（不过我试了<code>(0, 0)</code>到<code>(8, 8)</code>中的几组数据，都是没有问题的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*************************************************************************</span></span><br><span class="line"><span class="comment">    &gt; File Name: peano.cpp</span></span><br><span class="line"><span class="comment">    &gt; Author: Amano Sei</span></span><br><span class="line"><span class="comment">    &gt; Mail: amano_sei@outlook.com</span></span><br><span class="line"><span class="comment">    &gt; Created Time: 2020年12月12日 星期六 22时36分34秒</span></span><br><span class="line"><span class="comment"> ************************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> ca[<span class="number">40</span>];</span><br><span class="line"><span class="keyword">int</span> xy2type[<span class="number">3</span>][<span class="number">3</span>] = &#123; &#123; <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span> &#125;, &#123; <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span> &#125;, &#123; <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span> &#125; &#125;;</span><br><span class="line"></span><br><span class="line">pair&lt;long long, long long&gt; convert(int type, int ck, pair&lt;long long, long long&gt; cp)&#123;</span><br><span class="line">    <span class="keyword">if</span>(type == <span class="number">1</span> || type == <span class="number">7</span> || type == <span class="number">4</span>)</span><br><span class="line">        cp.first = ca[ck]<span class="number">-1</span>-cp.first;</span><br><span class="line">    <span class="keyword">if</span>(type == <span class="number">3</span> || type == <span class="number">5</span> || type == <span class="number">4</span>)</span><br><span class="line">        cp.second = ca[ck]<span class="number">-1</span>-cp.second;</span><br><span class="line">    <span class="keyword">return</span> cp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">pair&lt;long long, long long&gt; convert2e(int type, int ck, pair&lt;long long, long long&gt; cp)&#123;</span><br><span class="line">    <span class="keyword">if</span>(type != <span class="number">1</span> &amp;&amp; type != <span class="number">7</span> &amp;&amp; type != <span class="number">4</span>)</span><br><span class="line">        cp.first = ca[ck]<span class="number">-1</span>-cp.first;</span><br><span class="line">    <span class="keyword">if</span>(type != <span class="number">3</span> &amp;&amp; type != <span class="number">5</span> &amp;&amp; type != <span class="number">4</span>)</span><br><span class="line">        cp.second = ca[ck]<span class="number">-1</span>-cp.second;</span><br><span class="line">    <span class="keyword">return</span> cp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getck</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="number">39</span>;</span><br><span class="line">    <span class="keyword">while</span>(l &lt;= r)&#123;</span><br><span class="line">        <span class="keyword">int</span> m = (l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(ca[m] &gt; x)</span><br><span class="line">            r = m<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            l = m+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> l;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">getdis</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x, <span class="keyword">long</span> <span class="keyword">long</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ck = getck(max(x, y));</span><br><span class="line">    <span class="keyword">if</span>(ck == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> type = xy2type[x/ca[ck<span class="number">-1</span>]][y/ca[ck<span class="number">-1</span>]];</span><br><span class="line">    pair&lt;<span class="keyword">long</span> <span class="keyword">long</span>, <span class="keyword">long</span> <span class="keyword">long</span>&gt; np = convert(type, ck<span class="number">-1</span>, &#123; x%ca[ck<span class="number">-1</span>], y%ca[ck<span class="number">-1</span>] &#125;);</span><br><span class="line">    <span class="keyword">return</span> type*ca[ck<span class="number">-1</span>]*ca[ck<span class="number">-1</span>]+getdis(np.first, np.second);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">get2dis</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x1, <span class="keyword">long</span> <span class="keyword">long</span> y1, <span class="keyword">long</span> <span class="keyword">long</span> x2, <span class="keyword">long</span> <span class="keyword">long</span> y2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ck = getck(max(max(x1, y1), max(x2, y2)));</span><br><span class="line">    <span class="keyword">if</span>(ck == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> t1 = xy2type[x1/ca[ck<span class="number">-1</span>]][y1/ca[ck<span class="number">-1</span>]], t2 = xy2type[x2/ca[ck<span class="number">-1</span>]][y2/ca[ck<span class="number">-1</span>]];</span><br><span class="line">    <span class="keyword">if</span>(t1 &gt; t2)&#123;</span><br><span class="line">        swap(t1, t2);</span><br><span class="line">        swap(x1, x2);</span><br><span class="line">        swap(y1, y2);</span><br><span class="line">    &#125;</span><br><span class="line">    pair&lt;<span class="keyword">long</span> <span class="keyword">long</span>, <span class="keyword">long</span> <span class="keyword">long</span>&gt; st, ep;</span><br><span class="line">    <span class="keyword">if</span>(t1 == t2)&#123;</span><br><span class="line">        st = convert(t1, ck<span class="number">-1</span>, &#123; x1%ca[ck<span class="number">-1</span>], y1%ca[ck<span class="number">-1</span>] &#125;);</span><br><span class="line">        ep = convert(t2, ck<span class="number">-1</span>, &#123; x2%ca[ck<span class="number">-1</span>], y2%ca[ck<span class="number">-1</span>] &#125;);</span><br><span class="line">        <span class="keyword">return</span> get2dis(st.first, st.second, ep.first, ep.second);</span><br><span class="line">    &#125;</span><br><span class="line">    st = convert2e(t1, ck<span class="number">-1</span>, &#123; x1%ca[ck<span class="number">-1</span>], y1%ca[ck<span class="number">-1</span>] &#125;);</span><br><span class="line">    ep = convert(t2, ck<span class="number">-1</span>, &#123; x2%ca[ck<span class="number">-1</span>], y2%ca[ck<span class="number">-1</span>] &#125;);</span><br><span class="line">    <span class="keyword">return</span> getdis(st.first, st.second)+getdis(ep.first, ep.second)+(t2-t1<span class="number">-1</span>)*ca[ck<span class="number">-1</span>]*ca[ck<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> cans = ca[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">40</span>; i++)</span><br><span class="line">        ca[i] = cans = cans*<span class="number">3</span>;</span><br><span class="line">    <span class="keyword">int</span> k;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;k);</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> x1, y1, x2, y2;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%lld%lld%lld%lld"</span>, &amp;x1, &amp;y1, &amp;x2, &amp;y2) != EOF)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, get2dis(x1, y1, x2, y2)<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/13/%E7%9A%AE%E4%BA%9A%E8%AF%BA%E6%9B%B2%E7%BA%BF%E8%B7%9D%E7%A6%BB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-今年因为顾及我妈去了我外婆家" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1043,80 +1130,6 @@ mjx-container[display="true"] + br {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/12/10/%E9%A1%BA%E5%B8%A6%E5%A4%8D%E4%B9%A0%E4%BA%86%E4%B8%8B%E5%88%92%E5%88%86%E6%A0%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-看到dalao讲peer-pressure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/10/%E7%9C%8B%E5%88%B0dalao%E8%AE%B2peer-pressure/">看到dalao讲peer pressure</a>
-    </h1>
-  
-
-        
-        <a href="/2020/12/10/%E7%9C%8B%E5%88%B0dalao%E8%AE%B2peer-pressure/" class="archive-article-date">
-  	<time datetime="2020-12-09T16:12:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-10 00:12:48</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>连那样的dalao都会苦恼这样的问题，像我这样的渣滓老老实实慢慢地努力就好了（</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/10/%E7%9C%8B%E5%88%B0dalao%E8%AE%B2peer-pressure/">展开全文 >></a>
         </p>
       
 
