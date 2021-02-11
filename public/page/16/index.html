@@ -382,6 +382,80 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-啊我发烧了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/06/%E5%95%8A%E6%88%91%E5%8F%91%E7%83%A7%E4%BA%86/">啊我发烧了</a>
+    </h1>
+  
+
+        
+        <a href="/2020/11/06/%E5%95%8A%E6%88%91%E5%8F%91%E7%83%A7%E4%BA%86/" class="archive-article-date">
+  	<time datetime="2020-11-06T06:22:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-06 14:22:56</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>真的发烧了，不过这样就说的通了，毕竟我居然会觉得冷…还是恶寒（</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/06/%E5%95%8A%E6%88%91%E5%8F%91%E7%83%A7%E4%BA%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我是真的不想吐槽" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1032,92 +1106,6 @@ mjx-container[display="true"] + br {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/11/03/%E5%85%B3%E4%BA%8E%E9%AD%94%E7%8E%8B%E5%9F%8E%E6%99%9A%E5%AE%89%E7%AC%AC%E4%BA%94%E8%AF%9D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hdu4635" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/03/hdu4635/">hdu4635</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/03/hdu4635/" class="archive-article-date">
-  	<time datetime="2020-11-03T04:56:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-03 12:56:03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>写在前面，这篇不是题解，只是自己的一些思考。</p>
-<p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4635" target="_blank" rel="noopener">这道题</a>如果图是不强连通的，那么最终一定是两个强连通分量，因为三个及以上的情况必然还可以加边，必然不是最多的。</p>
-<p>最终一定是一个缩点后入度为0的SCC和一个缩点后出度为0的SCC组成的图，并且其中一个是原图中最小的入度或出度为0的SCC。这是由于强连通分量通过加边可以合并，但是不能再分，所以想让简化的式子更小，一定要让两个连通分量的差最大，如果要合并出入度或出度为0的SCC那么它一定含有入度或出度为0的SCC，这就使得不可能合并出更小的入度或出度为0的SCC。</p>
-<p>感觉自己要写证明会出现很多不严谨的地方，而且说起来会很麻烦很多地方我不知道怎么准确描述，不过我自认为我可以说服自己这样做是正确的，所以就不写证明了。</p>
-<p>（以前这种东西会出现在自己的代码注释里，现在有博客了所以就写博客里吧…但是感觉会污染博客的内容…但是乱七八糟的负能量本身已经污染得不能再污染了（</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hdu</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">强连通分量</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">思考</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/03/hdu4635/">展开全文 >></a>
         </p>
       
 
