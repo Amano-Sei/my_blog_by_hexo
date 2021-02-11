@@ -382,6 +382,116 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-一个不有趣的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/28/%E4%B8%80%E4%B8%AA%E4%B8%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E9%97%AE%E9%A2%98/">一个不有趣的问题</a>
+    </h1>
+  
+
+        
+        <a href="/2021/01/28/%E4%B8%80%E4%B8%AA%E4%B8%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2021-01-28T08:59:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-28 16:59:47</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <details>
+<summary>一个无意义的问题</summary>
+先来看一段代码。
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> atest = <span class="number">18446744073709551615</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> btest = <span class="number">18446744073709551615</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (<span class="number">18446744073709551615</span> == <span class="number">-1</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (atest == <span class="number">-1</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (btest == <span class="number">-1</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>起因是c++ primer书中这么一句：</p>
+<blockquote>
+<p>十进制字面值的类型是int、long和long long中尺寸最小的那个（例如，三者当中最小是int），当让前提是这种类型要能容纳下当前的值。</p>
+</blockquote>
+<p>然后我就在想，如果字面值超过<code>long long</code>范围会怎样，编译时会提示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctest.cpp:13:21: warning: integer constant is so large that it is unsigned</span><br><span class="line">   13 |     printf("%d\n", (18446744073709551615 == -1));</span><br><span class="line">      |                     ^~~~~~~~~~~~~~~~~~~~</span><br></pre></td></tr></table></figure>
+
+<p>参考运行结果，我们可以认为编译器并没有把它当作<code>long long</code>或是<code>unsigned long long</code>。</p>
+<p>但是事实上借助gcc的typeof拓展我们会发现，这里变成了一个<code>__int128</code>，但是如果我们再把数字稍大一点跨过<code>unsigned long long</code>的界限，我们打印<code>sizeof(typeof(18446744073709551616))</code>结果是4…</p>
+<p>查了<a href="https://gcc.gnu.org/onlinedocs/gcc-9.3.0/gcc/_005f_005fint128.html#g_t_005f_005fint128" target="_blank" rel="noopener">gcc文档</a>。</p>
+<blockquote>
+<p>There is no support in GCC for expressing an integer constant of type __int128 for targets with long long integer less than 128 bits wide.</p>
+</blockquote>
+<p>这里指出，对于<code>long long</code>小于128位宽的情况不支持表示<code>__int128</code>类型的常量，但是我想编译器还是把这个十进制字面常量当作<code>__int128</code>来处理的，只是这个常量的支持范围并没有实际的<code>__int128</code>那么大。</p>
+<p>继续尝试我们得出结论，这个字面值常量可以支持<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.791ex" xmlns="http://www.w3.org/2000/svg" width="10.765ex" height="2.713ex" role="img" focusable="false" viewBox="0 -849.5 4758.2 1199"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><g data-mml-node="math"><g data-mml-node="mrow"><g data-mml-node="mo"><path data-c="5B" d="M202 -349V850H394V810H242V-309H394V-349H202Z"></path></g><g data-mml-node="mn" transform="translate(417, 0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g><g data-mml-node="mo" transform="translate(917, 0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="msup" transform="translate(1361.7, 0)"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="TeXAtom" transform="translate(500, 363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(500, 0)"></path></g></g></g><g data-mml-node="mo" transform="translate(2841, 0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(3841.2, 0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(4341.2, 0)"><path data-c="5D" d="M22 810V850H214V-349H22V-309H174V810H22Z"></path></g></g></g></g></svg></mjx-container>的范围，并且允许取负，但是这是一个<strong>受环境影响</strong>的结论（事实上我看了上面打印的汇编代码，打印的时候就硬生生直接一个0根本不会实际比较（即使我开<code>O0</code>）。</p>
+<p>不过这个问题其实没有意义…正如标题一样，这是一个不有趣的问题…</p>
+</details>
+
+<p>因为书上紧接着就说了（</p>
+<blockquote>
+<p>如果一个字面值连与之关联的最大数据类型都放不下，将产生错误。</p>
+</blockquote>
+<p>把书扔一边自己查文档尝试的我就像个小丑….虽然这个问题无意义，但是如果我能记住”把书看全在一并解决疑问才是高效做法”的话那么他就有意义了（</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">cppp</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">胡思乱想</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/28/%E4%B8%80%E4%B8%AA%E4%B8%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-关于循环数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1094,82 +1204,6 @@ mjx-container[display="true"] + br {
 
 
   
-    <article id="post-终于看完了廖雪峰的git教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/14/%E7%BB%88%E4%BA%8E%E7%9C%8B%E5%AE%8C%E4%BA%86%E5%BB%96%E9%9B%AA%E5%B3%B0%E7%9A%84git%E6%95%99%E7%A8%8B/">终于看完了廖雪峰的git教程</a>
-    </h1>
-  
-
-        
-        <a href="/2021/01/14/%E7%BB%88%E4%BA%8E%E7%9C%8B%E5%AE%8C%E4%BA%86%E5%BB%96%E9%9B%AA%E5%B3%B0%E7%9A%84git%E6%95%99%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2021-01-14T07:56:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-14 15:56:31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>昨天看c++ primer的时候，翻出来了自己很久以前留下的准备作为c++ primer题解的空git仓库…突然意识到自己之前说要看git教程还没看完（我到底欠了多少债…</p>
-<p>不过本来就是两三个小时就可以读完的内容，说到为什么我拖了这么久（是因为之前我非要一边读教程一边读文档…但是明明很多概念都不知道，读文档非常吃力的说，最后就作罢了。</p>
-<p>以后有机会可能会尝试去读pro git，但是感觉可能最少现在没有必要。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/14/%E7%BB%88%E4%BA%8E%E7%9C%8B%E5%AE%8C%E4%BA%86%E5%BB%96%E9%9B%AA%E5%B3%B0%E7%9A%84git%E6%95%99%E7%A8%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">« Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/52/">52</a><a class="extend next" rel="next" href="/page/3/">Next »</a>
@@ -1472,6 +1506,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">蓝桥杯</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">关于给我妹讲c语言</a>
               </li>
             
             <div class="clearfix"></div>

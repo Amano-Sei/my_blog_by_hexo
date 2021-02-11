@@ -4,6 +4,7 @@ cwd: /home/amano-sei/hexo/myblog
 date: 2021-02-08 15:39:09
 tags:
 - 日常
+- 关于给我妹讲c语言
 ---
 
 （我真的快要疯了）
