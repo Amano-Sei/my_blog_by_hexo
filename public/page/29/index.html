@@ -382,6 +382,187 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-写到一半发觉不对了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/30/%E5%86%99%E5%88%B0%E4%B8%80%E5%8D%8A%E5%8F%91%E8%A7%89%E4%B8%8D%E5%AF%B9%E4%BA%86/">写到一半发觉不对了...</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/30/%E5%86%99%E5%88%B0%E4%B8%80%E5%8D%8A%E5%8F%91%E8%A7%89%E4%B8%8D%E5%AF%B9%E4%BA%86/" class="archive-article-date">
+  	<time datetime="2020-09-30T14:09:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-30 22:09:25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>写到一半发觉一年前自己好像也看过手册上的这个证明，当时的我是觉得自己可以证出来了。</p>
+<p>现在的话写一半的时候发觉要分情况讨论。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/30/%E5%86%99%E5%88%B0%E4%B8%80%E5%8D%8A%E5%8F%91%E8%A7%89%E4%B8%8D%E5%AF%B9%E4%BA%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-关于次优最小生成树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/30/%E5%85%B3%E4%BA%8E%E6%AC%A1%E4%BC%98%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">关于次优最小生成树</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/30/%E5%85%B3%E4%BA%8E%E6%AC%A1%E4%BC%98%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2020-09-30T13:21:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-30 21:21:04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>update:（这篇博客是我第一次写这种长篇大论，但是当时还没有装hexo filter mathjax，然而这使得即使是我自己再重新阅读都会感觉非常吃力…所以有时间会更新成用latex公式的版本）</p>
+<p>次优最小生成树(second-best minimum spanning tree)是来自算法导论上的翻译，其实也就是我们常说的次小生成树。</p>
+<p>最小生成树想必大家都很熟了，次小生成树的解答需要用到一条结论:</p>
+<blockquote>
+<p>设T为G=(V, E)的一棵最小生成树，图G包含边(u, v)∈T，(x, y)∉T’使得T-{(u,v)}∪{(x, y)}是G的一颗次优最小生成树。</p>
+</blockquote>
+<p>(以上是直接从算法导论证明题题面上直接抄下来的)</p>
+<p>首先对这个结论的解释，T’只是说存在这样一棵次优最小生成树，但是不代表所有的次优最小生成树都可以经由某棵确定的最小生成树得来。容易构造这样一个例子，一个8字形每个直角处都有一个点且每条边长度都相等的图，他的最小生成树可以是H形的也可以是E字形的，显然两者差了不止一条边。我们参考算法导论上的对于所有边都不等情况下的证明对这个结论进行证明。</p>
+<blockquote>
+<p>因为所有生成树都有|V|-1条边，而次优最小生成树一定最少有一条边不在最小生成树中。如果次优最小生成树中有一条边(x, y)不在最小生成树中，那么(x, y)肯定替换了最小生成树中的某条边，我们假定他是(u, v)。在这种情况下，T’ = T-{(u, v)}∪{(x, y)}，正如我们想要证明的那样。<br>因此，我们需要做的就是证明替换最小生成树中的边替换入次优最小生成树得到的权值是不会大于次优最小生成树的。假定存在一个次优最小生成树T’与T有k(k&gt;1)条边不同，也就是最少有2条边在T-T’中，我们设(u, v)是T-T’中最小的边(如果最小的边有复数个，则任选其一)，如果我们把(u, v)添加到T’中，那么我们会得到一个环c。c中一定包含了在T’-T中的某条边(x, y)(否则，会因为T包含c中所有的边导致T中有环)。<br>我们可以证明w(x, y) &gt;= w(u, v)。用反证法，假如w(x, y) &lt; w(u, v)。如果我们把(x, y)加入到T中，我们会得到一个环c’，他必然包含T-T’中的某条边(u’, v’)(否则，会因为T’包含c’中所有的边导致T’中有环)。那么T’’ = T-{(u’, v’)}∪{(x, y)}会形成一棵生成树，并且一定有w(u’, v’) &lt;= w(x, y)，否则T’’将会拥有比T还小的权值。因此我们有w(u’, v’) &lt;= w(x, y) &lt; w(u, v)，这与我们设(u, v)是T-T’中最小的边矛盾。<br>如果我们把(u, v)添加到T’中，那么(u, v)和(x, y)都在环c上，那么T’-{(x, y)}∪{(u, v)}就是一棵有着小于等于T’的权值的生成树，与T有最少一条边不同，由T’是次优最小生成树，那么我们就有T’’的权值与T’相同，即T’’也是次优最小生成树。<br>我们可以重复上述操作，每轮操作结束后得到的都是一棵次优最小生成树，且每次都会和最小生成树少差一条边。我们可以重复操作直到得到的次优最小生成树与最小生成树只差一条边，即如果次优最小生成树存在则一定存在一棵和最小生成树只差一条边次优最小生成树。</p>
+</blockquote>
+<p>(以上是对算法导论指导者手册上对23-1b的证明进行翻译和修改得来的)</p>
+<p>我们可以通过增加条件来证明一些其他的结论。</p>
+<p>如果最小生成树唯一，那么我们就可以证明w(x, y)&gt;w(u, v)，最终会使得T’’是优于T’的一棵生成树且与T有至少一条边不同，这与T’是次优最小生成树矛盾，即这种情况下次优最小生成树只能和最小生成树差一条边。</p>
+<p>我们还可以证明任意一棵次小生成树一定是由某棵最小生成树转化而来。首先最小生成树唯一的时候前一条结论已经可以证明了，而当最小生成树不唯一时，即次小生成树就是最小生成树。取任意两个有最少两条边以上不同的最小生成树T和T’，我们取(T-T’)∪(T’-T)中最小的边t，不妨令t∈(T-T’)，则我们把t插入到T’中，替换掉(T’-T)中的t’，则由w(t) &lt;= w(t’)可知T’’=T’-{t’}∪{t}有着不大于T’的权值，则T’’是与T’只差一条边的最小生成树，与T差|T-T’|-1条边的最小生成树，则T’得证。而T和T’’重复上述直到或是T直接得证或是得到与T差|T-T’|-(|T-T’|-1)条边的最小生成树得证。</p>
+<p>这里有另一个更符合这篇博客基本思想的证法，我们取t为(T-T’)中最小的一条边，把它插入T’替换掉t’，首先因为最小生成树的性质T’’=T’-{t’}∪{t}，T’’会有着大于等于T’的权值，则有w(t)&gt;=w(t’)，又同前面的反证可以得到w(t’)&gt;=w(t)，所以w(t)=w(t’)，所以我们可以重复上述操作得到一棵与T差|T-T’|-(|T-T’|-1)条边的最小生成树。</p>
+<p>严格次小生成树同样要分为两部分，一部分是若存在严格次小生成树则任意最小生成树一定存在可以只替换一条边得到的严格次小生成树，另一部分是任意严格次小生成树都可以经由某棵最小生成树得来。</p>
+<p>　我们先来看第一部分，假设存在最小生成树T和严格次小生成树T’，且两者存在至少2条边不同，u是T-T’中最小的边中的一条，设u添加到T’中形成的环为c，替换掉的是x∈(T’-T)∩c，则同上我们可以得到w(u) &lt;= w(x)，则有w(u)要么等于w(x)，要么小于w(x)。我们进一步分情况来看。</p>
+<p>　　w(u) = w(x)时，我们有T’’=T’-{x}∪{u}权值与T’相同，即T’’也是一棵严格次小生成树，而T’’与T的不同边数为(|T-T’|-1)</p>
+<p>　　w(u) &lt; w(x)时，我们有T’’=T’-{x}∪{u}权值比T’小，且与T有最少一条边不同，则由于T’是严格次小生成树，T’’就必须是最小生成树了，即w(T’)-w(x)+w(u)=T(T)。需要注意我们的目的是为了得到一个与T较T’少差一条边的严格次小生成树，所以我们只会在c∩(T’-T)上只有权等于w(x)的边时候才会替换x，需要注意可以根据前面的证明我们知道属于c∩(T’-T)的边权值要么等于w(u)，要么等于这里的w(x)。此时我们重复前述操作，取新的u’是T-T’’(等于T-T’-{u})中最小的边，设u’插入T’’中得到的环为c’，替换掉的边为x’∈(T’’-T)∩c’，因为T’’是最小生成树，易得w(u’)=w(x’)，新的最小生成树T’’’=T’’-{x’}∪{u’}。</p>
+<p>　　　当x’不是c上的边时，我们把x插入T’’’再次得到环c，然后我们可以替换掉u，得到T’’’’=T’’’-{u}∪{x}=T’’-{x’}∪{u’}-{u}∪{x}=T’-{x’}∪{u’}，显然T’’’’具有和T’相等的权值是一棵严格次小生成树且与T相差(|T-T’|-1)条边。</p>
+<p>　　　再看x’是c上的边的情况，首先我们有w(x’)=w(x)=w(u’)，然后这里可以根据从u’两端沿着c’出发第一次碰到c上的点的分布分为两种情况。这里有两个前提，首先是u’一定不在c中，因为u’在T-T’中不可能出现在T’∪{u}的子集c中; 其次是因为x’∈c和x’∈c’，所以c和c’交集非空，即两者一定相交。(其实这里就是我感觉自己哪里不严谨…)</p>
+<p>　　　　两点分布在u和x在c上的一侧。显然x’一定在两个交点之间的路径上，而这条路径也一定在同一侧。那么这种情况下我们插入x到T’’’中，会得到一个从x到交点1到u’到交点2到u到x的环，这里我们替换掉u，即得到T’’’’=T’’’-{u}∪{x}，这是一棵与T’权值相等的严格次小生成树，且与T相差(|T-T’|-1)条边。</p>
+<p>　　　　两点分布在u和x在c上的两侧。同上x’一定在两个交点之间的路径上，这条路径一定经过u。那么这种情况下我们插入x’到T’’’中，会得到一个从u’到交点1到u到x’到交点2再到u’的环，这时我们替换掉u，即得到T’’’’=T’’’-{u}∪{x’}=T’’-{u}∪{u’}=T’-{x}∪{u’}，我们有w(x)=w(u’)，所以T’’的权值与T’相等是一棵严格次小生成树，且与T相差(|T-T’|-1)条边。</p>
+<p>　我们重复上述操作直到得到一棵与T相差[|T-T’|-(|T-T’|-1)]条边的严格次小生成树。</p>
+<p>至此若存在严格次小生成树，则任意最小生成树一定存在一棵与他只差一条边的严格次小生成树得证。</p>
+<p>　然后我们看第二部分，任意严格次小生成树一定存在一棵与他只差一条边的最小生成树。</p>
+<p>　　假设存在最小生成树T和严格次小生成树T’，且两者存在2条边不同。u是T-T’中最小的边中的一条，我们把u插入T’中，替换掉的x∈(T’-T)，得到新的生成树T’’=T’-{x}∪{u}。类似第一部分我们可以得到w(u)要么等于w(x)要么小于w(x)且插入会使得T’’变为最小生成树。</p>
+<p>　　　当w(u)=w(x)时，我们把x插入T中，替换掉u’∈(T-T’)，得到生成树T’’’=T-{u’}∪{x}，因为T是最小生成树，所以我们有w(x)&gt;=w(u’)我们知道u是(T-T’)中最小的边中的一条，所以我们有w(u)&lt;=w(u’)，则w(x)&lt;=w(u’)，则w(x)=w(u’)，即T’’’是一棵最小生成树，且T’’’与T’相差(|T-T’|-1)条边。</p>
+<p>　　　当w(u)&lt;w(x)时，即T’’是一棵最小生成树(证明见严格次小生成树第一部分的证明)，且T’’与T’只差1条边。</p>
+<p>　　我们重复上述操作，直到连续通过第一种情况得到一棵与T’差[|T-T’|-(|T-T’|-1)]条边的最下生成树，要么直接通过第二种情况得到一棵与T’只差1条边的最小生成树。</p>
+<p>至此第二部分得证。</p>
+<p>上述就是我能想到和我能证明的所有结论了，卡了我足足三天有余，能完整搞完真是太开心了。如果有错误恳请指出，如果在我能力范围内我一定会进行修正的。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">最小生成树</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/30/%E5%85%B3%E4%BA%8E%E6%AC%A1%E4%BC%98%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-算法导论指导者手册上有一个证明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -999,166 +1180,6 @@ mjx-container[display="true"] + br {
 
 
   
-    <article id="post-和之前一样先来整理下关于cache部分的思路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/29/%E5%92%8C%E4%B9%8B%E5%89%8D%E4%B8%80%E6%A0%B7%E5%85%88%E6%9D%A5%E6%95%B4%E7%90%86%E4%B8%8B%E5%85%B3%E4%BA%8Ecache%E9%83%A8%E5%88%86%E7%9A%84%E6%80%9D%E8%B7%AF/">和之前一样先来整理下关于cache部分的思路</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/29/%E5%92%8C%E4%B9%8B%E5%89%8D%E4%B8%80%E6%A0%B7%E5%85%88%E6%9D%A5%E6%95%B4%E7%90%86%E4%B8%8B%E5%85%B3%E4%BA%8Ecache%E9%83%A8%E5%88%86%E7%9A%84%E6%80%9D%E8%B7%AF/" class="archive-article-date">
-  	<time datetime="2020-09-29T10:48:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29 18:48:06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>说实话，自己可能是在不想和csapp说再见，所以昨天才玩了原神，今天也整体效率不高。但是总归是要说再见的嘛，而且都这么久了。</p>
-<p>言归正传，基本上第一二部分是重写了PP，并且修改过后相比于pp有更好的结构。接下来整理完思路后会做下整体检查，然后就着手cache部分的实现。</p>
-<p>我个人来说不是很想搞个连续的块然后在需要换出一些块时还要顺序遍历整个缓存。</p>
-<p>我个人想实现的是我们保存的是一个个缓存管理块的链表，然后在每次读后把它放到队尾，在缓存大小要超过最大限制时，依次释放队首的块，直到足够我们放下新的缓存。</p>
-<p>首先这是典型的读者写者问题，我想实现成写优先的形式。因为每一个连接都首先是读者，然后在检查过想要的内容没有缓存后才会有可能变成写者，所以读者的频率要远大于写者。而写者写的内容很有可能会是接下来的读者想要读的内容，所以写需要有一定的优先级。需要注意的是，即使这样也有可能会出现重复获取同一连接的内容，所以在写的时候需要再次检查是否不需要缓存。</p>
-<p>信号量同步方面除了整个缓存外，还需要给链表加个互斥信号量，本来是想针对节点加的，但是事实上所有节点都需要修改头部节点，所以其实还是个互斥…</p>
-<p>对于缓存的检索，准备用hash表来实现，hash值由url得来，本来这里能唯一标识缓存的就是url。</p>
-<p>嘛，差不多就这样吧，明天之内应该是可以搞定的。如果今天没有野鸡大学莫名其妙开会的话说不定今天就可以（</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">csapp</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/29/%E5%92%8C%E4%B9%8B%E5%89%8D%E4%B8%80%E6%A0%B7%E5%85%88%E6%9D%A5%E6%95%B4%E7%90%86%E4%B8%8B%E5%85%B3%E4%BA%8Ecache%E9%83%A8%E5%88%86%E7%9A%84%E6%80%9D%E8%B7%AF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我改变主意了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/29/%E6%88%91%E6%94%B9%E5%8F%98%E4%B8%BB%E6%84%8F%E4%BA%86/">我改变主意了</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/29/%E6%88%91%E6%94%B9%E5%8F%98%E4%B8%BB%E6%84%8F%E4%BA%86/" class="archive-article-date">
-  	<time datetime="2020-09-29T09:33:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29 17:33:45</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>发觉kuangbin的数论第二题好像要用网络流，那我还是从网络流刷过来吧，所以下一个准备过的专题是生成树（</p>
-<p>这两天的空闲时间再看点关于筛法的博客整理下，说起来那道求质数和的做法就是min25筛的第一部分（</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/29/%E6%88%91%E6%94%B9%E5%8F%98%E4%B8%BB%E6%84%8F%E4%BA%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/28/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/52/">52</a><a class="extend next" rel="next" href="/page/30/">Next »</a>
@@ -1280,7 +1301,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+                <a href="javascript:void(0)" class="js-tag color5">imas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">音乐</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1288,59 +1313,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">imas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反思</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日常</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">做饭</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">影之诗</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">离散化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tarjan算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">点双连通分量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小树形图</a>
+                <a href="javascript:void(0)" class="js-tag color3">题解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1348,15 +1325,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">差分</a>
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">单调队列</a>
+                <a href="javascript:void(0)" class="js-tag color1">强连通分量</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">单调栈</a>
+                <a href="javascript:void(0)" class="js-tag color3">思考</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小树形图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">poj</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1364,7 +1353,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树的直径</a>
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">反思</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">cppp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">胡思乱想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1372,11 +1373,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">偏序</a>
+                <a href="javascript:void(0)" class="js-tag color3">做饭</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1392,34 +1389,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">题解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">音乐</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">强连通分量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">思考</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">poj</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">cppp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">胡思乱想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">二分图匹配</a>
               </li>
              
@@ -1428,7 +1397,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tarjan算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">深度优先搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">点双连通分量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">偏序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">差分</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1440,7 +1425,43 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">单调队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单调栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">树的直径</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">影之诗</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">漫画吐槽</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">离散化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">关于给我妹讲c语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">二分查找</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1448,7 +1469,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">二分查找</a>
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1460,11 +1481,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">蓝桥杯</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">关于给我妹讲c语言</a>
+                <a href="javascript:void(0)" class="js-tag color4">蓝桥杯</a>
               </li>
             
             <div class="clearfix"></div>
