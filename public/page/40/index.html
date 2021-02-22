@@ -382,6 +382,172 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-关于播放视频" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/11/%E5%85%B3%E4%BA%8E%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/">关于播放视频</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/11/%E5%85%B3%E4%BA%8E%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/" class="archive-article-date">
+  	<time datetime="2020-09-11T13:08:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11 21:08:18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先说下结论，小视频可以放，大视频会因为connection reset by peer崩掉服务器…</p>
+<p>不过如果用video标签可以放，但是放到一半关掉也会崩。</p>
+<p>稍微查了下，说是因为rst报文导致的，我想这是比较正确的说法。</p>
+<p>然后又看到有人说这时候会收到sigpipe信号，然而我并没有屏蔽sigpipe信号或设置handler，rio_readnb也没有，所以如果按照默认行为，程序是会直接关闭而没有输出错误信息的机会，所以这显然是错误的。</p>
+<p>这条错误信息是ECONNRESET所对应的，所以我准备按照收到rst报文后的”对连接的快速拆卸”（参考自tcp/ip详解）来处理，让read和write可以返回0，让服务器以为读到了eof来看看</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">csapp</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">胡思乱想</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/11/%E5%85%B3%E4%BA%8E%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-为什么一开始没想到mdn的文档呢" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/11/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%80%E5%BC%80%E5%A7%8B%E6%B2%A1%E6%83%B3%E5%88%B0mdn%E7%9A%84%E6%96%87%E6%A1%A3%E5%91%A2/">为什么一开始没想到mdn的文档呢</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/11/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%80%E5%BC%80%E5%A7%8B%E6%B2%A1%E6%83%B3%E5%88%B0mdn%E7%9A%84%E6%96%87%E6%A1%A3%E5%91%A2/" class="archive-article-date">
+  	<time datetime="2020-09-11T10:19:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11 18:19:25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>11.6让看rfc2616来理解请求报头里面的内容（然而100多页加上各种语焉不详，感觉还不如直接百度…</p>
+<p>就在这个时候，我搜出来了mdn文档的页面…</p>
+<p>为什么一开始没想到呢（mdn文档上的内容看得舒服多了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">csapp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/11/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%80%E5%BC%80%E5%A7%8B%E6%B2%A1%E6%83%B3%E5%88%B0mdn%E7%9A%84%E6%96%87%E6%A1%A3%E5%91%A2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我跟个傻子一样" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -978,160 +1144,6 @@ mjx-container[display="true"] + br {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/09/10/%E5%9B%A0%E4%B8%BA%E8%87%AA%E5%B7%B1%E5%8F%91%E8%A7%89%E7%9D%A1%E7%9A%84%E7%A1%AE%E5%AE%9E%E6%9C%89%E7%82%B9%E5%B0%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-今天下午被老师训了一顿" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/09/%E4%BB%8A%E5%A4%A9%E4%B8%8B%E5%8D%88%E8%A2%AB%E8%80%81%E5%B8%88%E8%AE%AD%E4%BA%86%E4%B8%80%E9%A1%BF/">今天下午被老师训了一顿</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/09/%E4%BB%8A%E5%A4%A9%E4%B8%8B%E5%8D%88%E8%A2%AB%E8%80%81%E5%B8%88%E8%AE%AD%E4%BA%86%E4%B8%80%E9%A1%BF/" class="archive-article-date">
-  	<time datetime="2020-09-09T14:24:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-09 22:24:54</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>老师说我到现在都没想好选什么学校还想不想考研了（</p>
-<p>然后还一直鼓励我说河大就200多分（虽然估计没那么低</p>
-<p>嘛，加油吧我（</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/09/%E4%BB%8A%E5%A4%A9%E4%B8%8B%E5%8D%88%E8%A2%AB%E8%80%81%E5%B8%88%E8%AE%AD%E4%BA%86%E4%B8%80%E9%A1%BF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-今天打了计蒜客的热身赛" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/09/%E4%BB%8A%E5%A4%A9%E6%89%93%E4%BA%86%E8%AE%A1%E8%92%9C%E5%AE%A2%E7%9A%84%E7%83%AD%E8%BA%AB%E8%B5%9B/">今天打了计蒜客的热身赛</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/09/%E4%BB%8A%E5%A4%A9%E6%89%93%E4%BA%86%E8%AE%A1%E8%92%9C%E5%AE%A2%E7%9A%84%E7%83%AD%E8%BA%AB%E8%B5%9B/" class="archive-article-date">
-  	<time datetime="2020-09-09T14:21:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-09 22:21:41</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>然而完全没什么人打，我手生到写个链表都颤巍巍得跟个半进入棺材的人一样（</p>
-<p>a题b题说实话有点莫名其妙，尤其是a题到最后都没搜到（</p>
-<p>最后三题不会做（</p>
-<p>大概一年前的我也就这个水平，虽然比起之前速度确实要慢不少。</p>
-<p>嘛，慢慢总会回去的（</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/09/%E4%BB%8A%E5%A4%A9%E6%89%93%E4%BA%86%E8%AE%A1%E8%92%9C%E5%AE%A2%E7%9A%84%E7%83%AD%E8%BA%AB%E8%B5%9B/">展开全文 >></a>
         </p>
       
 
