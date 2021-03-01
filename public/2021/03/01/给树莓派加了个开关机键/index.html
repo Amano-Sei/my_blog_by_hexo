@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://amano-sei.github.io">
   <title>给树莓派加了个“开关机键” | Amano Sei的日记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="其实只是修改&#x2F;boot&#x2F;config.txt加入一行dtoverlay&#x3D;gpio-shutdown使得可以通过在gpio3和gnd之间接个按钮实现一个开关机键。 但是我没有合适的微动开关，而且还要焊接好麻烦…所以就给gpio3和gnd分别接了根杜邦线，然后想开关机的时候短接一下就可以了。 不过我不懂电路，做这个是因为之前我把我树莓派供出去给打印机用了（因为我把打印机从我房间搬出去了…但是有没有其他">
+  <meta name="description" content="其实只是修改&#x2F;boot&#x2F;config.txt加入一行dtoverlay&#x3D;gpio-shutdown使得可以通过在gpio3和gnd之间接个按钮实现一个开关机键。 但是我没有合适的微动开关，而且还要焊接好麻烦…所以就给gpio3和gnd分别接了根杜邦线，然后想开关机的时候短接一下就可以了。 不过我不懂电路，做这个是因为之前我把我树莓派供出去给打印机用了（因为我把打印机从我房间搬出去了…但是又没有其他">
 <meta property="og:type" content="article">
 <meta property="og:title" content="给树莓派加了个“开关机键”">
 <meta property="og:url" content="https://amano-sei.github.io/2021/03/01/%E7%BB%99%E6%A0%91%E8%8E%93%E6%B4%BE%E5%8A%A0%E4%BA%86%E4%B8%AA%E5%BC%80%E5%85%B3%E6%9C%BA%E9%94%AE/index.html">
 <meta property="og:site_name" content="Amano Sei的日记">
-<meta property="og:description" content="其实只是修改&#x2F;boot&#x2F;config.txt加入一行dtoverlay&#x3D;gpio-shutdown使得可以通过在gpio3和gnd之间接个按钮实现一个开关机键。 但是我没有合适的微动开关，而且还要焊接好麻烦…所以就给gpio3和gnd分别接了根杜邦线，然后想开关机的时候短接一下就可以了。 不过我不懂电路，做这个是因为之前我把我树莓派供出去给打印机用了（因为我把打印机从我房间搬出去了…但是有没有其他">
+<meta property="og:description" content="其实只是修改&#x2F;boot&#x2F;config.txt加入一行dtoverlay&#x3D;gpio-shutdown使得可以通过在gpio3和gnd之间接个按钮实现一个开关机键。 但是我没有合适的微动开关，而且还要焊接好麻烦…所以就给gpio3和gnd分别接了根杜邦线，然后想开关机的时候短接一下就可以了。 不过我不懂电路，做这个是因为之前我把我树莓派供出去给打印机用了（因为我把打印机从我房间搬出去了…但是又没有其他">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-01T03:36:31.000Z">
-<meta property="article:modified_time" content="2021-03-01T03:13:07.172Z">
+<meta property="article:modified_time" content="2021-03-01T03:40:40.694Z">
 <meta property="article:author" content="Amano Sei">
 <meta property="article:tag" content="日常">
 <meta name="twitter:card" content="summary">
@@ -411,7 +411,7 @@ mjx-container[display="true"] + br {
       
         <p>其实只是修改<code>/boot/config.txt</code>加入一行<code>dtoverlay=gpio-shutdown</code>使得可以通过在gpio3和gnd之间接个按钮实现一个开关机键。</p>
 <p>但是我没有合适的微动开关，而且还要焊接好麻烦…所以就给gpio3和gnd分别接了根杜邦线，然后想开关机的时候短接一下就可以了。</p>
-<p>不过我不懂电路，做这个是因为之前<a href="/2020/11/08/我的树莓派终于又找到了可以做的事情了/">我把我树莓派供出去给打印机用了</a>（因为我把打印机从我房间搬出去了…但是有没有其他离电脑近的地方），虽然我自己可以用ssh客户端关机，但是（虽然不是不可以）教我爸妈登录再关机好麻烦又不想让他们不关机直接断电，查了下配置起来非常简单然后就像上面说的那样做了…</p>
+<p>不过我不懂电路，做这个是因为之前<a href="/2020/11/08/我的树莓派终于又找到了可以做的事情了/">我把我树莓派供出去给打印机用了</a>（因为我把打印机从我房间搬出去了…但是又没有其他比较合适的地方），我个人来说是不介意树莓派7*24小时工作的，还可以搞点其他的什么东西（之前搞过ftp，发觉播放比较高清的视频不如直接传进想看的设备里面就作罢了…），但是我爸妈表示不行。虽然我自己可以用ssh客户端关机，但是（虽然不是不可以）教我爸妈登录再关机好麻烦，每次都帮他们关机更麻烦，又不想让他们不关机直接断电，查了下配置起来非常简单然后就像上面说的那样做了…</p>
 
       
 
