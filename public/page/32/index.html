@@ -388,6 +388,81 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-去看了zhihu上质数和的答案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/27/%E5%8E%BB%E7%9C%8B%E4%BA%86zhihu%E4%B8%8A%E8%B4%A8%E6%95%B0%E5%92%8C%E7%9A%84%E7%AD%94%E6%A1%88/">去看了zhihu上质数和的答案</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/27/%E5%8E%BB%E7%9C%8B%E4%BA%86zhihu%E4%B8%8A%E8%B4%A8%E6%95%B0%E5%92%8C%E7%9A%84%E7%AD%94%E6%A1%88/" class="archive-article-date">
+  	<time datetime="2020-09-27T09:55:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-27 17:55:12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>为什么呢…明明这么简单…为什么当时没让我好好看呢，说到底为什么只有我一个人在看啊…</p>
+<p>以上全是怨言，说到底是自己菜了，project euler我明明之前也有做，但是这个做法我却没看到，还是我的锅（</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/27/%E5%8E%BB%E7%9C%8B%E4%BA%86zhihu%E4%B8%8A%E8%B4%A8%E6%95%B0%E5%92%8C%E7%9A%84%E7%AD%94%E6%A1%88/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-小睡了一会儿" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1112,106 +1187,9 @@ mjx-container[display="true"] + br {
 
 
   
-    <article id="post-关于欧拉定理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/26/%E5%85%B3%E4%BA%8E%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/">关于欧拉定理</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/26/%E5%85%B3%E4%BA%8E%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-09-26T11:03:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26 19:03:53</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天最主要就学了这个，也是作为我的第一篇有关数论的博客。</p>
-<p>我们要想明白欧拉定理是什么，需要先知道一些名词和定义。</p>
-<ul>
-<li>积性函数: 指对所有互质的整数a和b有性质f(ab)=f(a)f(b)的数论函数。</li>
-<li>欧拉函数: phi(x) = 小于x的与x互质的正整数的个数。</li>
-<li>剩余类: 也称同余类。设模为n，则根据余数可将所有的整数分成n类，把所有与某一整数模n同余的整数构成的集合叫做模n的一个剩余类，记某一整数位a，则同余类可记做[a]，a是[a]的一个代表元。</li>
-<li>完全剩余系: 从模n的每个剩余类中各取一个数，得到一个由n个数组成的集合，叫做模n的一个完全剩余系。</li>
-<li>简化剩余系: 也称既约剩余系或缩系，<a href="#refer-anchor-1">参考资料1</a>叫他欧拉剩余系，是完全剩余系中与m互素的数构成的子集。</li>
-</ul>
-<p>欧拉函数是一个积性函数，它的积性的证明可以参考<a href="#refer-anchor-1">参考资料1</a>，简单叙述下就是，它是通过构造一个m列n行的数阵(gcd(m, n) = 1)，然后我们会发现每行都有一个m的完全剩余系进而有一个m的简化剩余系，同样每列都有一个n的完全剩余系进而有一个n的简化剩余系。加之在m和n互质的情况下，x与mn互质等价于x同时与m和n互质，进而可以得到phi(mn)=phi(m)*phi(n)。</p>
-<p>而积性的证明是推导出欧拉函数计算式中最复杂的一步，在理解了积性之后，我们就可以再借助一些其他的很容易理解的性质推导出欧拉函数的通式phi(n)=n(1-1/p1)(1-1/p2)…(1-1/pk)，p1,p2,…,pk是n的所有的不重复的质因子。</p>
-<p>最后终于到了欧拉定理，欧拉定理就是若正整数a, n有gcd(a, n) == 1，则有a^φ(n)≡1(mod n)。证明也是借助简化剩余系，设x1,x2,…,xk是n的简化剩余系，则可以证明ax1,ax2,…,axk也是n的简化剩余系，则有a^k*x1*x2*…*axk≡x1*x2*…*xk(mod n)，进而有n|(a^k-1)*x1*x2*…*xk，由于x1到xk都与n互质，则只有n|(a^k-1)，进而得证。</p>
-<p>类似的还有费马小定理，他其实是欧拉定理的一种特殊情况，设p为质数，则a^p≡a(mod p)，证明只需要分类讨论下a是否是p的倍数即可。</p>
-<p>然后还有一个推论，就是在a和b互质的情况下满足a^x≡1(mod b)的最小的x一定是phi(x)的因数，证明的话反证，如果不存在会推出一个比x还小的正整数满足条件，但是这是不可能的。</p>
-<p>这条推论可以用在poj3696中，关于poj3696有点很想说，算较大侧的代价居然远远大于排序下的代价，不过本来也没必要排序。看到有用long double的写法速度变快了好多，但是看代码我觉得有可能越界…主要这里的mod是大于根号long long最大正数的。</p>
-<p>然后是关于poj3696的解说，欧拉定理在这道题中是确定一个可能存在的最大值以及他的一个范围，让你好去找这个数，然后加上之前的推论，往欧拉函数值的因数里面找就是了。</p>
-<p>下面附上poj3696的代码:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*************************************************************************</span></span><br><span class="line"><span class="comment">    &gt; File Name: poj3696re.cpp</span></span><br><span class="line"><span class="comment">    &gt; Author: Amano Sei</span></span><br><span class="line"><span class="comment">    &gt; Mail: amano_sei@outlook.com </span></span><br><span class="line"><span class="comment">    &gt; Created Time: 2020年09月26日 星期六 20时05分08秒</span></span><br><span class="line"><span class="comment"> ************************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">150005</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> allp[maxn], tot;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">gcd</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a, <span class="keyword">long</span> <span class="keyword">long</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b==<span class="number">0</span>?a:gcd(b, a%b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">euler</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">long</span> <span class="keyword">long</span> ans = x;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> i = <span class="number">2</span>; i*i &lt;= x; i++)</span><br><span class="line">        <span class="keyword">if</span>(x%i == <span class="number">0</span>)&#123;</span><br><span class="line">            ans = ans/i*(i<span class="number">-1</span>);</span><br><span class="line">            <span class="keyword">do</span></span><br><span class="line">                x /= i;</span><br><span class="line">            <span class="keyword">while</span>(x%i == <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">if</span>(x &gt; <span class="number">1</span>)</span><br><span class="line">        ans = ans/x*(x<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">mul</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a, <span class="keyword">long</span> <span class="keyword">long</span> b, <span class="keyword">long</span> <span class="keyword">long</span> mod)</span></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)</span><br><span class="line">            ans = (ans+a)%mod;</span><br><span class="line">        a = (a&lt;&lt;<span class="number">1</span>)%mod;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">pow</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a, <span class="keyword">long</span> <span class="keyword">long</span> x, <span class="keyword">long</span> <span class="keyword">long</span> mod)</span></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(x)&#123;</span><br><span class="line">        <span class="keyword">if</span>(x&amp;<span class="number">1</span>)</span><br><span class="line">            ans = mul(ans, a, mod);</span><br><span class="line">        a = mul(a, a, mod);</span><br><span class="line">        x &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> L;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> phi;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans;</span><br><span class="line">    <span class="keyword">int</span> caset = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;L) != EOF &amp;&amp; L)&#123;</span><br><span class="line">        L = L/gcd(L,<span class="number">8</span>)*<span class="number">9</span>;</span><br><span class="line">        <span class="keyword">if</span>(gcd(L, <span class="number">10</span>) != <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Case %d: 0\n"</span>, ++caset);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        phi = euler(L);</span><br><span class="line">        ans = tot = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> i = <span class="number">1</span>; i*i &lt;= phi; i++)</span><br><span class="line">            <span class="keyword">if</span>(phi%i == <span class="number">0</span>)&#123;</span><br><span class="line">                allp[tot++] = phi/i;</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">pow</span>(<span class="number">10</span>, i, L) == <span class="number">1</span>)&#123;</span><br><span class="line">                    ans = i;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">if</span>(ans == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">while</span>(--tot &gt;= <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">pow</span>(<span class="number">10</span>, allp[tot], L) == <span class="number">1</span>)&#123;</span><br><span class="line">                    ans = allp[tot];</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case %d: %lld\n"</span>, ++caset, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>参考资料:</p>
-<ul>
-<li>[<span id="refer-anchor-1">1</span>] <a href="https://zhuanlan.zhihu.com/p/56548135" target="_blank" rel="noopener">欧拉函数的计算式</a></li>
-<li>[2] <a href="https://www.cnblogs.com/zylAK/p/9569668.html" target="_blank" rel="noopener">欧拉-费马小定理定理（证明及推论）</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/26/%E5%85%B3%E4%BA%8E%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/31/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="page-number" href="/page/31/">31</a><span class="page-number current">32</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><a class="extend next" rel="next" href="/page/33/">Next »</a>
+      <a class="extend prev" rel="prev" href="/page/31/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="page-number" href="/page/31/">31</a><span class="page-number current">32</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><a class="extend next" rel="next" href="/page/33/">Next »</a>
     </nav>
   
 
