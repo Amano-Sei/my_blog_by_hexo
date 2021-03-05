@@ -388,6 +388,86 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-做了个倒计时" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/22/%E5%81%9A%E4%BA%86%E4%B8%AA%E5%80%92%E8%AE%A1%E6%97%B6/">做了个倒计时</a>
+    </h1>
+  
+
+        
+        <a href="/2021/02/22/%E5%81%9A%E4%BA%86%E4%B8%AA%E5%80%92%E8%AE%A1%E6%97%B6/" class="archive-article-date">
+  	<time datetime="2021-02-22T01:57:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-22 09:57:56</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>（其实真正的起因是想把某些东西快点刷到第二页去，但是最近没什么好写的，只好写水到不能再水的东西了…）</p>
+<p>起因是最近在算距离假定的考研那天的倒计时居然要跑到客厅去问小度…然后就想写个简单的小工具，最开始时我直接想到的是暴力枚举之间的每一天…但是这实在是太蠢了（我就想一定有个常数级别的做法…</p>
+<p>思考后，得出了这样的做法: 先算出起始年份1月1日到终止年份1月1日的天数（我们通过算出到某年份各种数的倍数的个数，计算出到那一年一共有多少个闰年，然后我们对倒数第二年和第一年前一年的闰年数做差即可知道闰年数），最后再分别计算两端的天数加减即可。</p>
+<p>最开始我是按照400年有97个闰年，不足400的逐个判断来做的，但是事实上3200的倍数只有172800的倍数是闰年（按照现在的回归年精度应该是最大的标准了），本来<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="13.667ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 6041 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mrow" transform="translate(763, 0)"><g data-mml-node="mo"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mo" transform="translate(389, 0)"><text data-variant="normal" transform="matrix(1 0 0 -1 0 0)" font-size="884px" font-family="serif">相</text><text data-variant="normal" transform="translate(900, 0) matrix(1 0 0 -1 0 0)" font-size="884px" font-family="serif">差</text><text data-variant="normal" transform="translate(1800, 0) matrix(1 0 0 -1 0 0)" font-size="884px" font-family="serif">的</text><text data-variant="normal" transform="translate(2700, 0) matrix(1 0 0 -1 0 0)" font-size="884px" font-family="serif">年</text><text data-variant="normal" transform="translate(3600, 0) matrix(1 0 0 -1 0 0)" font-size="884px" font-family="serif">数</text></g><g data-mml-node="mo" transform="translate(4889, 0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></g></svg></mjx-container>级别的问题降不降成常数就没啥意义，连比较大的年份都处理不了那也太逊了吧（所以改成了上面那种（事实上进一步降了常数（事实上我只是在水博客…</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*************************************************************************</span></span><br><span class="line"><span class="comment">    &gt; File Name: countdown.c</span></span><br><span class="line"><span class="comment">    &gt; Author: Amano Sei</span></span><br><span class="line"><span class="comment">    &gt; Mail: amano_sei@outlook.com</span></span><br><span class="line"><span class="comment">    &gt; Created Time: 2021年02月22日 星期一 10时30分49秒</span></span><br><span class="line"><span class="comment"> ************************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> mc[<span class="number">13</span>] = { <span class="number">0</span>, <span class="number">31</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span> };</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pcnt</span><span class="params">(<span class="keyword">int</span> x)</span></span>{</span><br><span class="line">    <span class="keyword">return</span> x/<span class="number">4</span>-x/<span class="number">100</span>+x/<span class="number">400</span>-x/<span class="number">3200</span>+x/<span class="number">172800</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isp</span><span class="params">(<span class="keyword">int</span> x)</span></span>{</span><br><span class="line">    <span class="keyword">return</span> x%<span class="number">172800</span> == <span class="number">0</span> || (x%<span class="number">3200</span> != <span class="number">0</span> &amp;&amp; (x%<span class="number">400</span> == <span class="number">0</span> || (x%<span class="number">100</span> != <span class="number">0</span> &amp;&amp; x%<span class="number">4</span> == <span class="number">0</span>)));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span>{</span><br><span class="line">    <span class="keyword">if</span>(argc != <span class="number">3</span>){</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Usage: %s Y-M-D Y-M-D"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">int</span> sy, sm, sd;</span><br><span class="line">    <span class="keyword">int</span> ey, em, ed;</span><br><span class="line">    <span class="built_in">sscanf</span>(argv[<span class="number">1</span>], <span class="string">"%d-%d-%d"</span>, &amp;sy, &amp;sm, &amp;sd);</span><br><span class="line">    <span class="built_in">sscanf</span>(argv[<span class="number">2</span>], <span class="string">"%d-%d-%d"</span>, &amp;ey, &amp;em, &amp;ed);</span><br><span class="line">    <span class="keyword">int</span> ans = (ey-sy)*<span class="number">365</span>+pcnt(ey<span class="number">-1</span>)-pcnt(sy<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    mc[<span class="number">2</span>] = isp(sy)?<span class="number">29</span>:<span class="number">28</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; sm; i++)</span><br><span class="line">        ans -= mc[i];</span><br><span class="line">    ans -= sd<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    mc[<span class="number">2</span>] = isp(ey)?<span class="number">29</span>:<span class="number">28</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; em; i++)</span><br><span class="line">        ans += mc[i];</span><br><span class="line">    ans += ed<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"从%s到%s有%d天\n"</span>, argv[<span class="number">1</span>], argv[<span class="number">2</span>], ans);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>因为完全没有溢出之类的，以及完全是准备拿来自用的，所以没做很细致的数据检查。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/02/22/%E5%81%9A%E4%BA%86%E4%B8%AA%E5%80%92%E8%AE%A1%E6%97%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-久违地打了次cf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1093,84 +1173,6 @@ mjx-container[display="true"] + br {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/02/10/%E5%85%B3%E4%BA%8E%E7%BB%99%E6%88%91%E5%A6%B9%E8%AE%B2c%E8%AF%AD%E8%A8%80%EF%BC%88%E7%BB%AD%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-主机新作也太贵了吧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/08/%E4%B8%BB%E6%9C%BA%E6%96%B0%E4%BD%9C%E4%B9%9F%E5%A4%AA%E8%B4%B5%E4%BA%86%E5%90%A7/">主机新作也太贵了吧</a>
-    </h1>
-  
-
-        
-        <a href="/2021/02/08/%E4%B8%BB%E6%9C%BA%E6%96%B0%E4%BD%9C%E4%B9%9F%E5%A4%AA%E8%B4%B5%E4%BA%86%E5%90%A7/" class="archive-article-date">
-  	<time datetime="2021-02-08T08:37:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-08 16:37:15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本来是想着出的时候直接入的，但是这个价格只能望而却步了…还是等打折吧（</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">imas</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/08/%E4%B8%BB%E6%9C%BA%E6%96%B0%E4%BD%9C%E4%B9%9F%E5%A4%AA%E8%B4%B5%E4%BA%86%E5%90%A7/">展开全文 >></a>
         </p>
       
 
