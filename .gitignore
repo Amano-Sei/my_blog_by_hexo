@@ -5,4 +5,5 @@ show.sh
 autoupdate.sh
 *.un~
 themes/yilia/_config.yml
+*.php
 
