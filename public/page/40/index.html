@@ -388,6 +388,81 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-csapp足足看了我一年还多" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/13/csapp%E8%B6%B3%E8%B6%B3%E7%9C%8B%E4%BA%86%E6%88%91%E4%B8%80%E5%B9%B4%E8%BF%98%E5%A4%9A/">csapp足足看了我一年还多</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/13/csapp%E8%B6%B3%E8%B6%B3%E7%9C%8B%E4%BA%86%E6%88%91%E4%B8%80%E5%B9%B4%E8%BF%98%E5%A4%9A/" class="archive-article-date">
+  	<time datetime="2020-09-13T14:07:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-13 22:07:09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>看着最后40多页，这本书也陪了我这么久（虽然中间有好长一段时间的荒废…</p>
+<p>其实挺想感叹的，不过还没有结束，不是么，要继续加油啦!</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/13/csapp%E8%B6%B3%E8%B6%B3%E7%9C%8B%E4%BA%86%E6%88%91%E4%B8%80%E5%B9%B4%E8%BF%98%E5%A4%9A/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-因为看了珂朵莉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1061,92 +1136,6 @@ mjx-container[display="true"] + br {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/09/12/%E4%BF%AE%E6%94%B9%E4%B9%8B%E5%90%8E%E6%AD%A3%E5%B8%B8%E4%BA%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于播放视频" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/11/%E5%85%B3%E4%BA%8E%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/">关于播放视频</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/11/%E5%85%B3%E4%BA%8E%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/" class="archive-article-date">
-  	<time datetime="2020-09-11T13:08:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11 21:08:18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>先说下结论，小视频可以放，大视频会因为connection reset by peer崩掉服务器…</p>
-<p>不过如果用video标签可以放，但是放到一半关掉也会崩。</p>
-<p>稍微查了下，说是因为rst报文导致的，我想这是比较正确的说法。</p>
-<p>然后又看到有人说这时候会收到sigpipe信号，然而我并没有屏蔽sigpipe信号或设置handler，rio_readnb也没有，所以如果按照默认行为，程序是会直接关闭而没有输出错误信息的机会，所以这显然是错误的。</p>
-<p>这条错误信息是ECONNRESET所对应的，所以我准备按照收到rst报文后的”对连接的快速拆卸”（参考自tcp/ip详解）来处理，让read和write可以返回0，让服务器以为读到了eof来看看</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">csapp</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">胡思乱想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/11/%E5%85%B3%E4%BA%8E%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/">展开全文 >></a>
         </p>
       
 
