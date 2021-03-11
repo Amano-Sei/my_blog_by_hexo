@@ -388,6 +388,89 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-关于预线程化版本tiny" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/25/%E5%85%B3%E4%BA%8E%E9%A2%84%E7%BA%BF%E7%A8%8B%E5%8C%96%E7%89%88%E6%9C%ACtiny/">关于预线程化版本tiny</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/25/%E5%85%B3%E4%BA%8E%E9%A2%84%E7%BA%BF%E7%A8%8B%E5%8C%96%E7%89%88%E6%9C%ACtiny/" class="archive-article-date">
+  	<time datetime="2020-09-25T01:14:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-25 09:14:16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>果然一牵扯到semaphore就好复杂啊（</p>
+<p>这里我认为应该在sbuf_remove和sbuf_insert的过程中判断本次操作是否会导致sbuf的空或是满。</p>
+<p>如果额外的设置修正线程会导致信号量越来越复杂…最少我看到的两个答案说实话做的都不是很好，一开始我还觉得很妙，但是随着阅读和思考发现还是不行（为什么我要说还是…</p>
+<p>但是我的想法有一个问题，就是有可能会有比较严重的抖动，不过只要我的最低线程数不是设成1应该也不会很严重…</p>
+<p>本来书上只是给的建议，而且也没说空的时候一定要减半…差点就被某答案给带跑偏（</p>
+<p>下午做吧，上午想写写dp。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">csapp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/25/%E5%85%B3%E4%BA%8E%E9%A2%84%E7%BA%BF%E7%A8%8B%E5%8C%96%E7%89%88%E6%9C%ACtiny/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-其实自己已经发觉了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1097,81 +1180,6 @@ mjx-container[display="true"] + br {
 
 
   
-    <article id="post-上午update了下" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/23/%E4%B8%8A%E5%8D%88update%E4%BA%86%E4%B8%8B/">上午update了下</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/23/%E4%B8%8A%E5%8D%88update%E4%BA%86%E4%B8%8B/" class="archive-article-date">
-  	<time datetime="2020-09-23T06:59:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-23 14:59:21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>然后下午就不能启动了，报错invalid signature…</p>
-<p>虽然早就有打算，准备回头重装个别的什么linux，等哪天有心情吧（</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/23/%E4%B8%8A%E5%8D%88update%E4%BA%86%E4%B8%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/34/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><a class="extend next" rel="next" href="/page/36/">Next »</a>
@@ -1478,6 +1486,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">蓝桥杯</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">pn搜索</a>
               </li>
             
             <div class="clearfix"></div>
