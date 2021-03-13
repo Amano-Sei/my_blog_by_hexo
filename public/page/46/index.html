@@ -388,6 +388,92 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-通过作弊干掉了realloc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/20/%E9%80%9A%E8%BF%87%E4%BD%9C%E5%BC%8A%E5%B9%B2%E6%8E%89%E4%BA%86realloc/">通过作弊干掉了realloc</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/20/%E9%80%9A%E8%BF%87%E4%BD%9C%E5%BC%8A%E5%B9%B2%E6%8E%89%E4%BA%86realloc/" class="archive-article-date">
+  	<time datetime="2020-08-19T22:59:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-20 06:59:37</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>加上两个小作弊的块和把CHUNKSIZE设小，可以让realloc的利用率达到100。</p>
+<p>并且本来表现不佳的4号文件也摆小的CHUNKSIZE所赐，来到了98的利用率…</p>
+<p>7号和8号文件是先连续分配一堆，然后free掉偶数次分配的块，再分配一堆刚才分配的两种块和的块。</p>
+<p>我能写对他单独优化的的方法，其实就是简单分离存储，这还具有一点普适性，如果极端点，奇数次调用从头开始放，偶数次从尾开始放。</p>
+<p>不过简单分离存储要需要配备一点合并措施不然利用率肯定还是爆炸。</p>
+<p>不过作弊的情况下分数是94，不作弊是93。</p>
+<p>另外前面说不想继续整了，是因为发现有些高分好像是一组弱数据导致的。</p>
+<p>差不多就到这里吧，7和8号文件一时也想不到能同时保证他们和其他数据同时利用率很高的办法（其实是懒不想再写了…</p>
+<p>比较开心的是最后一次写的时候基本上没debug，非常顺利，这就是think twice, code once的力量。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">csapp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/20/%E9%80%9A%E8%BF%87%E4%BD%9C%E5%BC%8A%E5%B9%B2%E6%8E%89%E4%BA%86realloc/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-不折腾了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1091,85 +1177,6 @@ mjx-container[display="true"] + br {
 
 
   
-    <article id="post-其实也没那么糟" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/18/%E5%85%B6%E5%AE%9E%E4%B9%9F%E6%B2%A1%E9%82%A3%E4%B9%88%E7%B3%9F/">其实也没那么糟</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/18/%E5%85%B6%E5%AE%9E%E4%B9%9F%E6%B2%A1%E9%82%A3%E4%B9%88%E7%B3%9F/" class="archive-article-date">
-  	<time datetime="2020-08-18T07:32:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18 15:32:05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>不，其实还是挺糟的，但是现在已经写好了，并且realloc1的利用率已经来到了99。</p>
-<p>但是realloc2的利用率还是很低只有37%，在出发前先看看realloc2的具体的分配模式。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">csapp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/18/%E5%85%B6%E5%AE%9E%E4%B9%9F%E6%B2%A1%E9%82%A3%E4%B9%88%E7%B3%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/45/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="page-number" href="/page/45/">45</a><span class="page-number current">46</span><a class="page-number" href="/page/47/">47</a><a class="page-number" href="/page/48/">48</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><a class="extend next" rel="next" href="/page/47/">Next »</a>
@@ -1480,6 +1487,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">pn搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">阴影</a>
               </li>
             
             <div class="clearfix"></div>
