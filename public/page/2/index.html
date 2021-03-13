@@ -388,6 +388,82 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-给树莓派加了个开关机键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/01/%E7%BB%99%E6%A0%91%E8%8E%93%E6%B4%BE%E5%8A%A0%E4%BA%86%E4%B8%AA%E5%BC%80%E5%85%B3%E6%9C%BA%E9%94%AE/">给树莓派加了个“开关机键”</a>
+    </h1>
+  
+
+        
+        <a href="/2021/03/01/%E7%BB%99%E6%A0%91%E8%8E%93%E6%B4%BE%E5%8A%A0%E4%BA%86%E4%B8%AA%E5%BC%80%E5%85%B3%E6%9C%BA%E9%94%AE/" class="archive-article-date">
+  	<time datetime="2021-03-01T03:36:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01 11:36:31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>其实只是修改<code>/boot/config.txt</code>加入一行<code>dtoverlay=gpio-shutdown</code>使得可以通过在gpio3和gnd之间接个按钮实现一个开关机键。</p>
+<p>但是我没有合适的微动开关，而且还要焊接好麻烦…所以就给gpio3和gnd分别接了根杜邦线，然后想开关机的时候短接一下就可以了。</p>
+<p>不过我不懂电路，做这个是因为之前<a href="/2020/11/08/我的树莓派终于又找到了可以做的事情了/">我把我树莓派供出去给打印机用了</a>（因为我把打印机从我房间搬出去了…但是又没有其他比较合适的地方），我个人来说是不介意树莓派7*24小时工作的，还可以搞点其他的什么东西（之前搞过ftp，发觉播放比较高清的视频不如直接传进想看的设备里面就作罢了…），但是我爸妈表示不行。虽然我自己可以用ssh客户端关机，但是（虽然不是不可以）教我爸妈登录再关机好麻烦，每次都帮他们关机更麻烦，又不想让他们不关机直接断电，查了下配置起来非常简单然后就像上面说的那样做了…</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/01/%E7%BB%99%E6%A0%91%E8%8E%93%E6%B4%BE%E5%8A%A0%E4%BA%86%E4%B8%AA%E5%BC%80%E5%85%B3%E6%9C%BA%E9%94%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-小声bb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1066,84 +1142,6 @@ mjx-container[display="true"] + br {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/02/13/%E6%88%91%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%9C%89%E5%8B%87%E6%B0%94%E5%8E%BB%E6%9F%A5%E6%9F%90%E6%B1%9F%E6%B9%96%E9%AA%97%E5%AD%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-更里区的时候又发作了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/13/%E6%9B%B4%E9%87%8C%E5%8C%BA%E7%9A%84%E6%97%B6%E5%80%99%E5%8F%88%E5%8F%91%E4%BD%9C%E4%BA%86/">更里区的时候又发作了</a>
-    </h1>
-  
-
-        
-        <a href="/2021/02/13/%E6%9B%B4%E9%87%8C%E5%8C%BA%E7%9A%84%E6%97%B6%E5%80%99%E5%8F%88%E5%8F%91%E4%BD%9C%E4%BA%86/" class="archive-article-date">
-  	<time datetime="2021-02-12T17:48:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-13 01:48:39</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先是我在博客里建了个里区，jyo抱歉（</p>
-<p>其实真的真的不想写下面这个（</p>
-<p>我有一个最本质最本质的性质，就是我不能接受我知道并确信正确的事情被周围所有人告诉我是错误的。</p>
-<p>从四年前开始如果在家里就会定期因为一些事情跟有pstd一样发作，但是因为疫情，去年以来已经没有发作过了。但是因为昨天我的手贱，今天在更新里区时发作了并且是历来最严重的一次…不过在最后和我爸谈心时我爸终于承认江湖骗子是传销的了，我相信我以后不会再发作了（应该。</p>
-<p>抱歉写了一篇莫名其妙的文章，好像写出来会让别人担心（我是不是脑子有问题）…抱歉…</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">阴影</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/13/%E6%9B%B4%E9%87%8C%E5%8C%BA%E7%9A%84%E6%97%B6%E5%80%99%E5%8F%88%E5%8F%91%E4%BD%9C%E4%BA%86/">展开全文 >></a>
         </p>
       
 

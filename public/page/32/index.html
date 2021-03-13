@@ -388,6 +388,91 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-和之前一样先来整理下关于cache部分的思路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/29/%E5%92%8C%E4%B9%8B%E5%89%8D%E4%B8%80%E6%A0%B7%E5%85%88%E6%9D%A5%E6%95%B4%E7%90%86%E4%B8%8B%E5%85%B3%E4%BA%8Ecache%E9%83%A8%E5%88%86%E7%9A%84%E6%80%9D%E8%B7%AF/">和之前一样先来整理下关于cache部分的思路</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/29/%E5%92%8C%E4%B9%8B%E5%89%8D%E4%B8%80%E6%A0%B7%E5%85%88%E6%9D%A5%E6%95%B4%E7%90%86%E4%B8%8B%E5%85%B3%E4%BA%8Ecache%E9%83%A8%E5%88%86%E7%9A%84%E6%80%9D%E8%B7%AF/" class="archive-article-date">
+  	<time datetime="2020-09-29T10:48:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29 18:48:06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>说实话，自己可能是在不想和csapp说再见，所以昨天才玩了原神，今天也整体效率不高。但是总归是要说再见的嘛，而且都这么久了。</p>
+<p>言归正传，基本上第一二部分是重写了PP，并且修改过后相比于pp有更好的结构。接下来整理完思路后会做下整体检查，然后就着手cache部分的实现。</p>
+<p>我个人来说不是很想搞个连续的块然后在需要换出一些块时还要顺序遍历整个缓存。</p>
+<p>我个人想实现的是我们保存的是一个个缓存管理块的链表，然后在每次读后把它放到队尾，在缓存大小要超过最大限制时，依次释放队首的块，直到足够我们放下新的缓存。</p>
+<p>首先这是典型的读者写者问题，我想实现成写优先的形式。因为每一个连接都首先是读者，然后在检查过想要的内容没有缓存后才会有可能变成写者，所以读者的频率要远大于写者。而写者写的内容很有可能会是接下来的读者想要读的内容，所以写需要有一定的优先级。需要注意的是，即使这样也有可能会出现重复获取同一连接的内容，所以在写的时候需要再次检查是否不需要缓存。</p>
+<p>信号量同步方面除了整个缓存外，还需要给链表加个互斥信号量，本来是想针对节点加的，但是事实上所有节点都需要修改头部节点，所以其实还是个互斥…</p>
+<p>对于缓存的检索，准备用hash表来实现，hash值由url得来，本来这里能唯一标识缓存的就是url。</p>
+<p>嘛，差不多就这样吧，明天之内应该是可以搞定的。如果今天没有野鸡大学莫名其妙开会的话说不定今天就可以（</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">csapp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/29/%E5%92%8C%E4%B9%8B%E5%89%8D%E4%B8%80%E6%A0%B7%E5%85%88%E6%9D%A5%E6%95%B4%E7%90%86%E4%B8%8B%E5%85%B3%E4%BA%8Ecache%E9%83%A8%E5%88%86%E7%9A%84%E6%80%9D%E8%B7%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我改变主意了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1068,99 +1153,6 @@ mjx-container[display="true"] + br {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/09/27/%E7%AA%81%E7%84%B6%E6%83%B3%E8%AF%B4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于负能量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/27/%E5%85%B3%E4%BA%8E%E8%B4%9F%E8%83%BD%E9%87%8F/">关于负能量</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/27/%E5%85%B3%E4%BA%8E%E8%B4%9F%E8%83%BD%E9%87%8F/" class="archive-article-date">
-  	<time datetime="2020-09-27T05:24:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-27 13:24:54</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>因为不想在上一篇里那么大肆地释放负能量，所以在这一篇里写。</p>
-<p>不知道从哪里开始说起…从我第一次在比赛里面拿奖开始吧。</p>
-<p>当时是马上要参加acm省赛，然后我一开始和讨厌b和室友c是一队，因为实在不满讨厌b那种啥也不会又觉得自己啥都会，最后我在讨厌a决定要参加的时候说要不我退出来和室友d和旁观者e组队吧（旁观者e也是室友）。</p>
-<p>但是室友d和旁观者e在本来水平就不高的班里也算不上说得过去（虽然说实话让我来训练他们并且他们接受的话，我相信很快就会比讨厌b要强很多），然后老师开始就不同意，后来吊了很久就让我其他班的两个人组队。</p>
-<p>然后临时出现了ccpc省赛，就让我和他们两个去参加了，结果意外的拿了银，当时念铜没有的时候我已经准备走了…</p>
-<p>那也是第一次我在acm里面拿奖，真的很开心，但是这也是一个错误的开端，让我尝到了虚荣的味道，让我这个垃圾开始寻求除了活着以外的东西。</p>
-<p>再后来是acm省赛，我居然在比赛中产生了我的队友们不配拿奖的想法…就和当初ccpc省赛一样，他们两个在那讨论不可能成立的想法，我自己一个人在那苦苦思考推算正确的做法…但是ccpc省赛运气好我拿了银，但是acm省赛我失误wa了不该wa的，加上有道题题意有点问题，最后是铜比较靠前结束的…</p>
-<p>再后来ccpc网络赛，因为我在家里面，然后奢侈地开了一下午空调，自己一个人搞了，最后运气好最后一名进的现场赛(</p>
-<p>然后因为自己当时是以着能进就好的目标在搞，现场赛只写出签到题，当时想着只要不是最后一名就满意了，但是自己还是差得太远了。</p>
-<p>在后来icpc银川也发邀请了，但是学校因为要评估，所以没让我们去。</p>
-<p>再后来是这上半年，说是玩过去了，但是其实是把精力放在了网络和系统两门课上，野鸡大学大三下才开重要的专业课你敢信么…不过自己效率不如在学校也是真的。</p>
-<p>在然后就是前几天的ccpc网络赛，和队友一起的时候，我又想起了以前，我要自己写，要解释题意，要说服他们为什么那样不行，不过说实话比起讨厌b来说要好多了…没有埋怨的意思。如果我搞完数论部分或者没迷失在不该迷失的题上或者好好把所有题都读一读的话，现场赛还是稳稳的，所以网络赛没能出线我是全锅。</p>
-<p>上面这些大概就是自己acm的全历程，开始入门差不多也是在ccpc省赛拿奖那时候开始的，虽然一直三心二意地在搞，除了今年上半年外也确实没有完全停过。</p>
-<p>但是我已经大四了，即使我现在开始完全专心搞这个，我相信我今年最多也就区域赛银的实力，而且我那么功利地搞这个肯定搞不下去。</p>
-<p>写这个没什么别的，是在想我这么久以来，到底获得了什么，好像什么都没获得，但是为什么我不愿意放弃专心准备考研什么的呢，是因为我坚信自己一定还会再来一年么（笑</p>
-<p>嘛，少胡思乱想，多做事了，真的搞proxy lab去了（</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自我介绍</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/27/%E5%85%B3%E4%BA%8E%E8%B4%9F%E8%83%BD%E9%87%8F/">展开全文 >></a>
         </p>
       
 
