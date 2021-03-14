@@ -388,6 +388,90 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-还是和之前一样先整理下思路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/25/%E8%BF%98%E6%98%AF%E5%92%8C%E4%B9%8B%E5%89%8D%E4%B8%80%E6%A0%B7%E5%85%88%E6%95%B4%E7%90%86%E4%B8%8B%E6%80%9D%E8%B7%AF/">还是和之前一样先整理下思路</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/25/%E8%BF%98%E6%98%AF%E5%92%8C%E4%B9%8B%E5%89%8D%E4%B8%80%E6%A0%B7%E5%85%88%E6%95%B4%E7%90%86%E4%B8%8B%E6%80%9D%E8%B7%AF/" class="archive-article-date">
+  	<time datetime="2020-09-25T07:54:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-25 15:54:02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>预线程化版本的tiny，空缓冲区减半线程，满缓冲区线程翻倍，最低线程数是4。</p>
+<p>主线程负责监听，并且往sbuf里面insert新的到的connfd。</p>
+<p>其他线程负责服务，从sbuf中remove出connfd，取到后进行服务。</p>
+<p>翻倍机制做在insert中，在insert退出临界区前检查缓冲区是否已满，如果已满则翻倍线程。</p>
+<p>减半机制做在remove中，在remove推出临界区前检查缓冲区是否为空，若空且线程数大于最小线程数，则取消除了当前线程外的一半的线程。需要注意这里取消时需要等待服务的终止。但是这里也会带来问题，等待其他线程的终止需要时间，则当前remove的服务线程有可能会等待很久才能去为他这次remove到的connfd服务。</p>
+<p>在整理思路时，重新审视了这个问题，我们可以通过保持缓冲区的互斥信号的同时让他先服务，同时交由一个减半线程来cancel掉应该的线程之后在释放相应的互斥信号。</p>
+<p>差不多就这样吧，感觉可以下手了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">csapp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/25/%E8%BF%98%E6%98%AF%E5%92%8C%E4%B9%8B%E5%89%8D%E4%B8%80%E6%A0%B7%E5%85%88%E6%95%B4%E7%90%86%E4%B8%8B%E6%80%9D%E8%B7%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-刚才睡醒的时候" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1066,85 +1150,6 @@ mjx-container[display="true"] + br {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/09/23/%E6%88%91%E6%83%B3%E5%B7%AE%E4%B8%8D%E5%A4%9A%E5%8F%AF%E4%BB%A5%E7%BC%93%E4%B8%80%E7%BC%93%E4%BA%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-这个select版本的也太难改了吧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/23/%E8%BF%99%E4%B8%AAselect%E7%89%88%E6%9C%AC%E7%9A%84%E4%B9%9F%E5%A4%AA%E9%9A%BE%E6%94%B9%E4%BA%86%E5%90%A7/">这个select版本的也太难改了吧</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/23/%E8%BF%99%E4%B8%AAselect%E7%89%88%E6%9C%AC%E7%9A%84%E4%B9%9F%E5%A4%AA%E9%9A%BE%E6%94%B9%E4%BA%86%E5%90%A7/" class="archive-article-date">
-  	<time datetime="2020-09-23T12:06:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-23 20:06:12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前在想什么今天努努力把所有tiny都干掉…</p>
-<p>这个select版本能最少卡我一天我觉得…</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">csapp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/23/%E8%BF%99%E4%B8%AAselect%E7%89%88%E6%9C%AC%E7%9A%84%E4%B9%9F%E5%A4%AA%E9%9A%BE%E6%94%B9%E4%BA%86%E5%90%A7/">展开全文 >></a>
         </p>
       
 
