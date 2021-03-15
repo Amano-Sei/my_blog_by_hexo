@@ -388,6 +388,95 @@ mjx-container[display="true"] + br {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-再次关于二分" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/28/%E5%86%8D%E6%AC%A1%E5%85%B3%E4%BA%8E%E4%BA%8C%E5%88%86/">再次关于二分</a>
+    </h1>
+  
+
+        
+        <a href="/2020/11/28/%E5%86%8D%E6%AC%A1%E5%85%B3%E4%BA%8E%E4%BA%8C%E5%88%86/" class="archive-article-date">
+  	<time datetime="2020-11-28T14:38:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-28 22:38:02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>二分用来在有序的连续存储的数据结构中找在这种顺序下第一个在某个值”后面”或”前后无所谓或后面”的值非常方便。类似的第一个满足某种条件的值如果条件与顺序相关也是可以做的。</p>
+<p>因为发觉自己二分还在迷，所以这里写点自己<a href="/2020/11/01/其实自己二分的理解一直都有点问题/">“关于之前写过的那种二分”</a>的思考。</p>
+<p>l用来返回第一个满足某条件的值，r是最后一个不满足某条件的值。</p>
+<p>区间的变化要考虑满足条件的值还在哪个范围，时刻保持满足条件的值还在范围内即可。</p>
+<p>顺序一定要让满足条件的值在后方，不满足的值在前方。</p>
+<p>因为范围是<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="7.855ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 3472.1 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path></g><g data-mml-node="mi" transform="translate(278, 0)"><path data-c="1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path></g><g data-mml-node="mo" transform="translate(576, 0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(1020.7, 0)"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1693.9, 0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(2694.1, 0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(3194.1, 0)"><path data-c="5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path></g></g></g></svg></mjx-container>，我们需要有意识地调整判断条件使得m可能是结果的情况向左侧收缩。不便于调整判断条件的情况，适当调整寻找的是什么值也是可以考虑的。</p>
+<p>虽然写的很乱，感觉自己理了下之后好了点，不知道之后再遇到二分时会怎样。</p>
+<p>下面是思考后的新伪代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">bool somecondition(int a, int b){</span><br><span class="line">    //返回a是否满足某条件</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">int bitsearch(int l, int r, int x){</span><br><span class="line">    //l到r事先排序使得前面的不满足某条件，后面的满足某条件</span><br><span class="line">    while(l &lt;= r){</span><br><span class="line">        int m = (l+r)&gt;&gt;1;</span><br><span class="line">        if(somecondition(m, x))</span><br><span class="line">            //如果满足某条件</span><br><span class="line">            r = m-1;</span><br><span class="line">        else</span><br><span class="line">            l = m+1;</span><br><span class="line">    }</span><br><span class="line">    return l;</span><br><span class="line">    //返回的是第一个满足某条件的值。</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>证明的话，和之前是一模一样的，不过这里的二分就具有普遍性了，可以处理一切可以事先排序的问题。</p>
+<p>不知道之后自己还会不会再迷呢（</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">思考</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">二分查找</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/28/%E5%86%8D%E6%AC%A1%E5%85%B3%E4%BA%8E%E4%BA%8C%E5%88%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-感觉自己二分还是迷" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1063,80 +1152,6 @@ mjx-container[display="true"] + br {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/11/18/%E5%95%8A%E6%98%AF%E6%97%97%E8%A2%8Diori/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-难受-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/18/%E9%9A%BE%E5%8F%97-1/">难受</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/18/%E9%9A%BE%E5%8F%97-1/" class="archive-article-date">
-  	<time datetime="2020-11-17T16:45:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-18 00:45:48</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一睡不着就思考，一思考就睡不着，死循环…</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/18/%E9%9A%BE%E5%8F%97-1/">展开全文 >></a>
         </p>
       
 
